@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <img src="assets/bookshelf.svg" alt="bookshelf icon"><h1>Library</h1>
+    </div>
+  </header>
+  <button class="btn add-btn" id="addBookBtn">+ Add book</button>
+    <div class="library">
+        <table>
+            <thead>
+              <tr>
+                <th scope="col">Title</th>
+                <th scope="col">Author</th>
+                <th scope="col">Pages</th>
+                <th scope="col">Read</th>
+              </tr>
+            </thead>
+            <tbody id="bookshelf">
+              <tr>
+                <td data-label="Title">Book Title 1</td>
+                <td data-label="Author">Author 1</td>
+                <td data-label="Pages">100</td>
+                <td data-label="Read">Yes</td>
+              </tr>
+              <tr>
+                <td data-label="Title">Book Title 2</td>
+                <td data-label="Author">Author 2</td>
+                <td data-label="Pages">200</td>
+                <td data-label="Read">No</td>
+              </tr>
+              <!-- Add more rows as needed -->
+            </tbody>
+          </table>
+    </div>
+    <footer></footer>
+    <div class="modal" id="addBookModal">
+      <form action="submit" id="addBookForm">
+        <h3>Add book</h3>
+        <input type="text" name="title" id="title" placeholder="Title" required maxlength="100">
+        <input type="text" name="author" id="author" placeholder="Author" required maxlength="100">
+        <input type="number" name="pages" id="pages" placeholder="Pages" required max="8000">
+        <div class="read-checkbox">
+          <label for="read">Have you read it?</label>
+          <input type="checkbox" name="read" id="isRead">
+        </div>
+        <button class="btn" type="submit">Add</button>
+        <p class="errorMsg" id="errorMsg"></p>
+      </form>
+    </div>
+    <div class="overlay" id="overlay"></div>
+</body>
+</html>
