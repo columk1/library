@@ -6,11 +6,15 @@ Library.prototype.addBook = function(newBook) {
     this.books.push(newBook)
 }
 
+Library.prototype.removeBook = function(book) {
+    this.books.splice(this.books.indexOf(book), 1)
+}
+
 Library.prototype.isInLibrary = function(newBook) {
     return this.books.some((book) => book.title === newBook.title)
 }
 
-function Book(title, author, pages, isRead) {
+function Book(title, author, pages, isRead = false) {
     this.title = title
     this.author = author
     this.pages = pages
@@ -43,17 +47,40 @@ function display() {
     for (let i = 0; i < books.length; i++) {
         let row = bookshelf.appendChild(document.createElement('tr'))
         let titleCell = document.createElement('td')
-        titleCell.textContent = books[i].title
-        row.appendChild(titleCell)
         let authorCell = document.createElement('td')
-        authorCell.textContent = books[i].author
-        row.appendChild(authorCell)
         let pagesCell = document.createElement('td')
-        pagesCell.textContent = books[i].pages
-        row.appendChild(pagesCell)
         let readCell = document.createElement('td')
-        readCell.textContent = books[i].getReadString()
+        let removeCell = document.createElement('td')
+        let isReadLabel = document.createElement('label')
+        let isReadCheckbox = document.createElement('input')
+        let removeBtn = document.createElement('button')
+        let span = '<span class=checkbox-custom></span>'
+
+        isReadCheckbox.type = 'checkbox'
+        isReadCheckbox.classList = 'checkbox'
+        isReadCheckbox.checked = books[i].isRead
+        isReadCheckbox.dataset.id = i
+        isReadCheckbox.onclick = toggleRead
+        isReadLabel.appendChild(isReadCheckbox)
+        isReadLabel.insertAdjacentHTML('beforeend', span)
+
+        removeBtn.classList.add('btn','removeBtn')
+        removeBtn.dataset.id = i
+        removeBtn.onclick = removeBook
+        removeBtn.innerHTML = '<img src="assets/delete.svg" alt="remove">'
+
+        titleCell.textContent = books[i].title
+        authorCell.textContent = books[i].author
+        pagesCell.textContent = books[i].pages
+        // readCell.textContent = books[i].getReadString()
+
+        readCell.appendChild(isReadLabel)
+        removeCell.appendChild(removeBtn)
+        row.appendChild(titleCell)
+        row.appendChild(authorCell)
+        row.appendChild(pagesCell)
         row.appendChild(readCell)
+        row.appendChild(removeCell)
         bookshelf.appendChild(row)
     }
 }
@@ -102,6 +129,22 @@ const addBook = (e) => {
         closeAddBookModal()
       }
 }
+
+const removeBook = (e) => {
+    console.log(e)
+    const index = e.currentTarget.dataset.id
+    console.log(index)
+    library.removeBook(books[index])
+    console.log(books)
+    display()
+}
+
+const toggleRead = (e) => {
+    const index = e.target.dataset.id
+    books[index].isRead = e.target.checked
+}
+
+const status = () => console.table(library.books)
 
 addBookBtn.onclick = openAddBookModal
 overlay.onclick = closeAllModals

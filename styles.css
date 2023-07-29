@@ -38,10 +38,17 @@ header {
   font-size: 2.5rem;
 }
 
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 .library {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px 30px 40px;
+    width: 100%;
+    padding: 30px 30px 30px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
     border-radius: 6px;
     background-color: #f8f9fb;
 }
@@ -54,16 +61,17 @@ table {
   
 th,
 td {
-    padding: 16px;
     text-align: left;
 }
   
 th {
     /* background-color: #ffffff; */
+    padding: 0 16px 16px;
 }
 
 td {
-    background-color: #ffffff;
+  padding: 16px;
+  background-color: #ffffff;
 }
 
 tbody tr {
@@ -79,6 +87,11 @@ tbody tr td:nth-child(1), th:nth-child(1) {
   border-radius: 6px 0 0 6px;
 }
 
+tbody tr td:nth-last-child(2), th:nth-last-child(2) {
+  display: flex;
+  align-items: center;
+}
+
 tbody tr td:nth-last-child(1), th:nth-last-child(1) {
   border-radius: 0 6px 6px 0;
 }
@@ -88,10 +101,95 @@ tbody tr:hover {
   box-shadow: 0 0 0 1px #2067ec;
 }
 
+button {
+  cursor: pointer;
+  border: none;
+  background-color: none;
+  background: transparent;
+}
+
+.btn {
+  display: grid;
+  place-content: center;
+}
+
+.btn:hover {
+
+}
+
 .add-btn {
+  width: 50px;
+  height: 50px;
+  margin: 0 0 0 auto;
+  font-size: 1.5rem;
+  color: white;
+  border-radius: 50px;
+  background-color: #9fe9be;
+  box-shadow:rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+#addBookBtn:before {
+  content: '\FF0B';
+}
+
+.add-btn:hover {
+  box-shadow: 0 0 0 1px #2067ec;
+}
+
+.removeBtn {
+  width: 26px;
+  height: 26px;
+  border-radius: 3px;
+}
+
+.removeBtn:hover {
+  border: 1px solid #2067ec;
+}
+
+.removeBtn img {
+  width: 25px;
+  height: 25px;
+}
+
+label, span {
+  margin: 0 0.3rem;
+  padding: 0;
+}
+
+.checkbox {
+  display: none;
+}
+
+.checkbox-custom {
   display: block;
-  margin: 0 auto 1rem;
-  padding: 0.5rem 1rem;
+  position: relative;
+  width: 26px;
+  height: 26px;
+  border-radius: 3px;
+  background: url(assets/checkbox-blank.svg);
+  background-color: white;
+}
+
+.checkbox-custom:hover {
+  border: 1px solid #2067ec;
+}
+
+.checkbox:checked + .checkbox-custom::before {
+  content: "";
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  top: -1px;
+  right: 0px;
+  bottom: 0px;
+  left: -1px;
+  border-radius: 3px;
+  background: url(assets/checkbox-marked.svg);
+  background-color: white;
+}
+
+.checkbox:checked + .checkbox-custom:hover::before {
+  border: 1px solid #2067ec;
 }
 
 .modal {
@@ -125,3 +223,9 @@ tbody tr:hover {
 .overlay.active {
   display: block;
 }
+
+/* .h-divider {
+  width: calc(100% - 50px);
+  height: 2px;
+  background-color: #9fe9be;
+} */

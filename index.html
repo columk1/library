@@ -16,49 +16,53 @@
       <img src="assets/bookshelf.svg" alt="bookshelf icon"><h1>Library</h1>
     </div>
   </header>
-  <button class="btn add-btn" id="addBookBtn">+ Add book</button>
-    <div class="library">
-        <table>
-            <thead>
-              <tr>
-                <th scope="col">Title</th>
-                <th scope="col">Author</th>
-                <th scope="col">Pages</th>
-                <th scope="col">Read</th>
-              </tr>
-            </thead>
-            <tbody id="bookshelf">
-              <tr>
-                <td data-label="Title">Book Title 1</td>
-                <td data-label="Author">Author 1</td>
-                <td data-label="Pages">100</td>
-                <td data-label="Read">Yes</td>
-              </tr>
-              <tr>
-                <td data-label="Title">Book Title 2</td>
-                <td data-label="Author">Author 2</td>
-                <td data-label="Pages">200</td>
-                <td data-label="Read">No</td>
-              </tr>
-              <!-- Add more rows as needed -->
-            </tbody>
-          </table>
-    </div>
-    <footer></footer>
-    <div class="modal" id="addBookModal">
-      <form action="submit" id="addBookForm">
-        <h3>Add book</h3>
-        <input type="text" name="title" id="title" placeholder="Title" required maxlength="100">
-        <input type="text" name="author" id="author" placeholder="Author" required maxlength="100">
-        <input type="number" name="pages" id="pages" placeholder="Pages" required max="8000">
-        <div class="read-checkbox">
-          <label for="read">Have you read it?</label>
-          <input type="checkbox" name="read" id="isRead">
-        </div>
-        <button class="btn" type="submit">Add</button>
-        <p class="errorMsg" id="errorMsg"></p>
-      </form>
-    </div>
+  <main>
+    
+      <div class="library">
+        <div class="h-divider"></div><button class="btn add-btn" id="addBookBtn"></button>
+          <table>
+              <thead>
+                <tr>
+                  <th scope="col">Title</th>
+                  <th scope="col">Author</th>
+                  <th scope="col">Pages</th>
+                  <th scope="col">Read</th>
+                  <th scope="col" hidden="true">Remove</th>
+                </tr>
+              </thead>
+              <tbody id="bookshelf">
+                <tr>
+                  <td data-label="Title">Book Title 1</td>
+                  <td data-label="Author">Author 1</td>
+                  <td data-label="Pages">100</td>
+                  <td data-label="Read">Yes</td>
+                </tr>
+                <tr>
+                  <td data-label="Title">Book Title 2</td>
+                  <td data-label="Author">Author 2</td>
+                  <td data-label="Pages">200</td>
+                  <td data-label="Read">No</td>
+                </tr>
+                <!-- Add more rows as needed -->
+              </tbody>
+            </table>
+      </div>
+      <footer></footer>
+      <div class="modal" id="addBookModal">
+        <form action="submit" id="addBookForm">
+          <h3>Add book</h3>
+          <input type="text" name="title" id="title" placeholder="Title" required maxlength="100">
+          <input type="text" name="author" id="author" placeholder="Author" required maxlength="100">
+          <input type="number" name="pages" id="pages" placeholder="Pages" required max="8000">
+          <div class="read-checkbox">
+            <label for="read">Have you read it?</label>
+            <input type="checkbox" name="read" id="isRead">
+          </div>
+          <button class="btn" type="submit">Add</button>
+          <p class="errorMsg" id="errorMsg"></p>
+        </form>
+      </div>
+  </main>
     <div class="overlay" id="overlay"></div>
 </body>
 </html>
