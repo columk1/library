@@ -8,7 +8,9 @@
     <script src="script.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&family=Karla:wght@400;700&family=Roboto+Mono:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
   <header>
@@ -50,15 +52,15 @@
       <footer></footer>
       <div class="modal" id="addBookModal">
         <form action="submit" id="addBookForm">
-          <h3>Add book</h3>
+          <h2>Add a New Book</h2>
           <input type="text" name="title" id="title" placeholder="Title" required maxlength="100">
           <input type="text" name="author" id="author" placeholder="Author" required maxlength="100">
           <input type="number" name="pages" id="pages" placeholder="Pages" required max="8000">
           <div class="read-checkbox">
             <label for="read">Have you read it?</label>
-            <input type="checkbox" name="read" id="isRead">
+            <label><input type="checkbox" class="checkbox" name="read" id="isRead"><span class="checkbox-custom"></span></label>
           </div>
-          <button class="btn" type="submit">Add</button>
+          <button class="btn submitBtn" type="submit">Add</button>
           <p class="errorMsg" id="errorMsg"></p>
         </form>
       </div>
